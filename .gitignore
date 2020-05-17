@@ -1,0 +1,13 @@
+/.
+/.gradle/
+/.idea/
+/gradle/wrapper/
+/Problems/
+/Readability Score/
+/.gitignore-old
+/build.gradle
+/course-info.yaml
+/course-remote-info.yaml
+/gradlew
+/gradlew.bat
+/settings.gradle
