@@ -6,89 +6,6 @@ import java.util.Map;
 import java.util.Scanner;
 import static java.util.Map.entry;
 
-public class Main {
-    public static void main(String[] args) {
-        var textAnalyser = new TextAnalyser(args[0]);
-        var textReport = new TextReport(textAnalyser);
-        textReport.printDetails();
-        System.out.print("Enter the score you want to calculate (ARI, FK, SMOG, CL, all): ");
-        Scanner sc = new Scanner(System.in);
-        String score = sc.nextLine();
-        sc.close();
-        System.out.println();
-        textReport.printScore(score);
-    }
-}
-
-class TextReport {
-    TextAnalyser textAnalyser;
-
-    public TextReport(TextAnalyser textAnalyser) {
-    this.textAnalyser = textAnalyser;
-    }
-
-    public void printDetails() {
-        System.out.println("The text is:");
-        System.out.println(textAnalyser.text);
-        System.out.println();
-        System.out.println("Words: " + textAnalyser.wordCount);
-        System.out.println("Sentences: " + textAnalyser.sentCount);
-        System.out.println("Characters: " + textAnalyser.charCount);
-        System.out.println("Syllables: " + textAnalyser.syllCount);
-        System.out.println("Polysyllables: " + textAnalyser.polyCount);
-    }
-
-    public void printScore(String score) {
-        switch (score) {
-            case "ARI":
-                printARI();
-                break;
-            case "FK":
-                printFK();
-                break;
-            case "SMOG":
-                printSMOG();
-                break;
-            case "CL":
-                printCL();
-                break;
-            case "all":
-                printARI();
-                printFK();
-                printSMOG();
-                printCL();
-                System.out.println();
-                printAverageAge();
-        }
-    }
-
-    private void printARI() {
-        System.out.println("Automated Readability Index: " + textAnalyser.ariScore
-                + " (about " + textAnalyser.ariAge + " year olds).");
-    }
-
-    private void printFK() {
-        System.out.println("Flesch–Kincaid readability tests: " + textAnalyser.fkScore
-                + " (about " + textAnalyser.fkAge + " year olds).");
-    }
-
-    private void printSMOG() {
-        System.out.println("Simple Measure of Gobbledygook: " + textAnalyser.smogScore
-                + " (about " + textAnalyser.smogAge + " year olds).");
-    }
-
-    private void printCL() {
-        System.out.println("Coleman–Liau index: " + textAnalyser.clScore
-                + " (about " + textAnalyser.clAge + " year olds).");
-    }
-
-    private void printAverageAge() {
-        System.out.println("This text should be understood in average by "
-                + textAnalyser.averageAge + " year olds.");
-    }
-
-}
-
 class TextAnalyser {
     String text = "";
     String[] words;
@@ -127,7 +44,7 @@ class TextAnalyser {
                 Integer.parseInt(fkAge.substring(0, 2)) +
                 Integer.parseInt(smogAge.substring(0, 2)) +
                 Integer.parseInt((clAge).substring(0, 2))
-                ) / 4.0;
+        ) / 4.0;
     }
 
     private String getAgeFromScore(double score) {
