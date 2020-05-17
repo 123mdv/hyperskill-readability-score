@@ -1,4 +1,4 @@
-# hyperskill-readability-score
+# hyperskill-readability-score-java
 
 This is a Java learning project from Hyperskill/JetBrains Academy, more details here: https://hyperskill.org/projects/39?goal=7
 
